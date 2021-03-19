@@ -1,0 +1,47 @@
+<!DOCTYPE html> {% load static %}
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="ifand.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>道我：扫码联系物主</title>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <link rel="stylesheet" href="https://oss.mowo.co/assets/bootstrap-4-5-3/css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        body {
+            display: -ms-flexbox;
+            display: flex;
+        }
+        .cover-container {
+            max-width: 42em;
+        }
+        .cover {
+            padding: 0 1.5rem;
+        }
+    </style>
+</head>
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="mb-auto"></div>
+    <main role="main" class="inner cover">
+        {% if handler %}
+            <p class="lead">
+                <samp>{{ handler }}</samp>
+            </p>
+        {% endif %}
+        <div class="text-center">
+            <img width="172" height="196" src="{% static 'image/qrimg/mpa-qr.jpg' %}" class="rounded" alt="小程序码">
+        </div>
+        <div style="margin-top: 2rem;">
+            <h3>道我</h3>
+            <p class="lead">扫码通话</p>
+        </div>
+    </main>
+    <div class="mt-auto"></div>
+</div>
+</body>
+</html>

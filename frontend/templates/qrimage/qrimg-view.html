@@ -1,0 +1,58 @@
+<!DOCTYPE html> {% load static %}
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="ifand.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ name }}的{{ by }}</title>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <link rel="stylesheet" href="https://oss.mowo.co/assets/bootstrap-4-5-3/css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        body {
+            display: -ms-flexbox;
+            display: flex;
+        }
+        .cover-container {
+            max-width: 42em;
+        }
+        .cover {
+            padding: 0 1.5rem;
+        }
+    </style>
+</head>
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="mb-auto"></div>
+    <main role="main" class="inner cover">
+        <h5>请使用微信扫码</h5>
+        <p class="lead">即可联系</p>
+        {% if avatar %}
+            <p class="text-center">
+                <img width="60" height="60" src="{{ avatar }}" class="img-thumbnail" alt="{{ tail }}">
+            </p>
+        {% endif %}
+        {% if name %}
+            <p class="lead">
+                <kbd>{{ name }}</kbd>
+            </p>
+        {% endif %}
+        <div class="text-center" style="margin-top: 5rem;">
+            <img width="86" height="86" src="{% static 'image/qrimg/mpa-qra.jpg' %}" class="rounded" alt="微信小程序码">
+        </div>
+        <div style="margin-top: 1rem;">
+            <p>道我：扫码联系物主</p>
+        </div>
+    </main>
+    <div class="mt-auto"></div>
+</div>
+{% if ua.is_mobile or ua.is_tablet %}
+<script>
+    location.href ='weixin://scanQRCode';
+</script>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,56 @@
+# Kubrick dev config
+
+import:
+  - kubase
+
+
+django:
+  debug: true
+  domain: 'localhost'
+  address: 'http://{django.domain}'
+  allowed_hosts:
+   - '*'
+  cors_origin_whitelist:
+   - 'http://localhost:4200'
+  secret_key: 'secret_key...'
+  qrimg_host: 'http://10.0.0.4:5577'
+  api_host: 'http://vagrant:5566'
+
+
+databases:
+  kubrick:  # pgsql
+    host: '127.0.0.1'
+    port: 5432
+    name: 'kubrickdb'
+    user: 'kubrickdb'
+    pwd: 'kubrickdb'
+
+
+redis:
+  host: '127.0.0.1'
+  port: 6379
+
+
+celery:
+  broker_url: 'redis://{redis.host}:{redis.port}/11'
+
+
+agora:
+  appid: 'appid...'
+  certificate: 'certificate...'
+
+
+sentry_dsn: 'https://a@b.ingest.sentry.io/1'
+
+
+aliyun:
+  ak: 'ak...'
+  secret: 'secret...'
+  ramusr: 'ramusr...'
+
+
+alioss:
+  bucket_name: 'bucket_name...'
+  endpoint_public: 'endpoint_public...'
+  endpoint_internal: 'endpoint_internal...'
+  cdn_host_url: 'cdn_host_url...'

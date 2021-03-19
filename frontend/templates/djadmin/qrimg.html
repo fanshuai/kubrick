@@ -1,0 +1,59 @@
+<!DOCTYPE html> {% load static %}
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="ifand.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>场景码：{{ inst.fmt }}</title>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <link rel="stylesheet" href="https://oss.mowo.co/assets/bootstrap-4-5-3/css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        body {
+            display: -ms-flexbox;
+            display: flex;
+        }
+        .cover-container {
+            max-width: 42em;
+        }
+        .cover {
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="mb-auto"></div>
+    <main role="main" class="inner cover">
+        <div>
+            <p class="lead">{{ inst.scened }} {{ inst.get_status_display }}</p>
+            <p class="lead">发行时间：<samp>{{ inst.published_at }}</samp></p>
+            <p class="lead">激活时间：<samp>{{ inst.activated_at }}</samp></p>
+            <p>绑定用户：<samp>{{ inst.usrid }}</samp></p>
+            <p class="lead">
+                <a href="{{ inst.qr_uri }}" target="_blank">
+                    <samp>{{ inst.fmt }}</samp>
+                </a>
+            </p>
+        </div>
+        <div>
+            {% with qr_s=inst.qrimg_shifting qr_u=inst.qrimg_url %}
+                <a href="{% firstof qr_s qr_u %}" download="S{{ inst.subject_id }}-B{{ inst.batch }}_{{ inst.qrimg.name | upper }}">
+                    <img class="img-thumbnail" height="300" width="300" src="{% firstof qr_s qr_u %}" alt="{{ inst.fmt }}" style="object-fit: contain;">
+                </a>
+            {% endwith %}
+        </div>
+    </main>
+    <div class="mt-auto"></div>
+</div>
+</body>
+</html>

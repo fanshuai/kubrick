@@ -1,0 +1,5 @@
+### Stop 
+    
+    supervisorctl shutdown
+    
+

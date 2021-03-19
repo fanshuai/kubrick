@@ -1,0 +1,37 @@
+.field-pk,
+.field-fee,
+.field-key,
+.field-bid,
+.field-tid,
+.field-hid,
+.field-fmt,
+.field-code,
+.field-cost,
+.field-user,
+.field-qrimg,
+.field-usrid,
+.field-spuid,
+.field-amount,
+.field-symbol,
+.field-number,
+.field-avatar,
+.field-convid,
+.field-openid,
+.field-unionid,
+.field-task_id,
+.field-call_ts,
+.field-trade_no,
+.field-username,
+.field-duration,
+.field-device_key,
+.field-qrimg_show {
+    font-family: Roboto Mono, Consolas, Monaco, monospace;
+}
+
+.field-fee:not(.form-row),
+.field-cost:not(.form-row),
+.field-amount:not(.form-row),
+.field-call_ts:not(.form-row),
+.field-duration:not(.form-row) {
+    text-align: right;
+}

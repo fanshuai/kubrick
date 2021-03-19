@@ -1,0 +1,25 @@
+# Kubrick base config
+# All other config import this
+# Every key must be lower
+
+version: '2021.03.17'
+
+
+dirs:
+  logs_api: './_tmp'
+  silky: './_tmp'
+  temp: './_tmp'
+
+
+email:
+  host: 'smtpdm.aliyun.com'
+  port: 465
+  use_ssl: true
+  user: 'user...'
+  pwd: 'pwd...'
+  server_email: 'server_email...'
+  default_from: 'default_from...'
+
+
+admins:
+ - ['admin', 'admin@example.com']
